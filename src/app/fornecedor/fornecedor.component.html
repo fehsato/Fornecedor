@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-8 m-auto">  
+      <form [formGroup]="formGroupfornecedor">
+        <div class="mb-3">
+          <div class="display-6 text-center">
+              Cadastro De Fornecedor
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Nome:</label>
+          <input type="text" formControlName="name" class="form-control" id="name" placeholder="Ex: Amazon">
+        </div>         
+          <div class="mb-3 d-flex justify-content-end">
+            <button class="btn btn-primary" (click)="save()">Salvar</button>
+            <button class="btn btn-primary" (click)="clean()">Limpar</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fornecedores of Fornecedor">
+        <th scope="row">{{fornecedores.id}}</th>
+        <td>{{fornecedores.name}}</td>        
+        <td>
+          <button class="btn btn-primary me-1" (click)="edit(fornecedores)">Editar</button>
+          <button class="btn btn-primary" (click)="save(fornecedores)">Salvar</button>
+          <button class="btn btn-primary" (click)="remove(fornecedores)">Excluir</button>
+          <button class="btn btn-primary" (click)="clean(fornecedores)">Limpar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
