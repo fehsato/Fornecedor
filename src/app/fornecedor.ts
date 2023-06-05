@@ -1,4 +1,4 @@
-export interface Supplier {
+export interface fornecedor {
     id: number,
     name: string,
     active: boolean,

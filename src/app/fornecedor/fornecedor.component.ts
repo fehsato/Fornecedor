@@ -1,6 +1,6 @@
-import { ClientService } from '../fornecedor.service';
+import { fornecedorService } from '../fornecedor.service';
 import { Component, OnInit } from '@angular/core';
-import { Fornecedor } from '../fornecedor';
+import { fornecedor } from '../fornecedor';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,11 +10,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class fornecedorComponent implements OnInit  {
 
-  fornecedor: Fornecedor[] = [];
+  fornecedor: fornecedor[] = [];
   isEditing : boolean = false;
   formGroupClient : FormGroup;
 
-  constructor (private fornecedorService: ClientService,
+  constructor (private fornecedorService: fornecedorService,
                 private formBuilder: FormBuilder
     )
      {
@@ -67,12 +67,12 @@ export class fornecedorComponent implements OnInit  {
     this.isEditing = false;
   }
 
-  edit(fornecedor: Fornecedor): void {
+  edit(fornecedor: fornecedor): void {
     this.formGroupClient.setValue(fornecedor);
     this.isEditing = true;
   }
 
-  remove(fornecedor: Fornecedor): void {
+  remove(fornecedor: fornecedor): void {
     this.fornecedorService.remove(fornecedor).subscribe({
       next : () => this.loadClient()
     })
